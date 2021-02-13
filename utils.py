@@ -17,7 +17,6 @@ def check_datetime_format(post_json):
             abort(400, "Date of birth needs to be in isoformat (1996-02-17)")
 
 def check_gender_format(post_json):
-    print(post_json.get('gender'), flush=True)
     if post_json.get('gender') is not 'F' and  post_json.get('gender') is not 'M':
         abort(400, "Incorrect gender format. M or F values are accepted.")
 
@@ -37,7 +36,10 @@ def get_licence_number(post_json):
     licence_number = ''.join((licence_number, str(month_of_birth)[1:3]))
 
     #Get the 9th and 10th digits
-    day_of_birth = 100+post_json['date_of_birth'].day
+    if post_json['date_of_birth'].day < 10:
+        day_of_birth = ''.join(('0', str(post_json['date_of_birth'].day)))
+    else:
+        day_of_birth = post_json['date_of_birth'].day
     licence_number = ''.join((licence_number, str(day_of_birth)))
 
     #Get the 11th digit
