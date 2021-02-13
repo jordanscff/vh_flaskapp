@@ -16,6 +16,11 @@ def check_datetime_format(post_json):
         except Exception:
             abort(400, "Date of birth needs to be in isoformat (1996-02-17)")
 
+def check_gender_format(post_json):
+    print(post_json.get('gender'), flush=True)
+    if post_json.get('gender') is not 'F' and  post_json.get('gender') is not 'M':
+        abort(400, "Incorrect gender format. M or F values are accepted.")
+
 def get_licence_number(post_json):
     #Get first 5 digits
     last_name = ''.join((post_json.get('last_name'), '99999'))

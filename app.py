@@ -6,7 +6,7 @@ app = Flask(__name__)
 import routes.licence
 
 #Configs for SQLAlchemy
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.dev_master'
 
 if __name__ == '__main__':
