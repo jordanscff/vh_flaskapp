@@ -23,8 +23,12 @@ def post_licence():
     )
     db.session.add(user)
     db.session.commit()
-    return jsonify(licence_number)
+    return make_response(jsonify(licence_number), 200)
 
 @app.route('/licence')
 def get_licence():
-    return make_response(jsonify("OK"), 200)
+    users = User.query.all()
+    licence_list = []
+    for user in users:
+        licence_list.append(user.licence_number)
+    return make_response(jsonify(licence_list), 200)
