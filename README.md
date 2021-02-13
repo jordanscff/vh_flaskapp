@@ -7,16 +7,10 @@ Activate env:
 source env/Scripts/activate
 Windows (.\env\Scripts\activate)
 
-Install flask:
-pip install flask
-
-Install flask-sqlalchemy:
-pip install flask flask-sqlalchemy
-
-Show flask the route to the main file:
+Show flask the route to the main file (Type into cmd line):
 export FLASK_APP=app
 
-Ensure it is in dev mode:
+Ensure it is in dev mode (Type into cmd line):
 export FLASK_ENV=development
 
 SETUP SQLite:
@@ -29,3 +23,8 @@ Your db will now be created. You can view by typing in sqlite3.exe db.dev_master
 
 Run it:
 flask run -h localhost -p 8080
+
+To run Pytest:
+Activate env
+Run 'Pytest -v'
+There are a total of 6 tests.
