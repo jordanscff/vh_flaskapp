@@ -5,7 +5,12 @@ app = Flask(__name__)
 
 
 @app.route('/licence', methods=['POST'])
-def hello():
+def post_licence():
+    print(request.get_json(), flush=True)
+    return "hello"
+
+@app.route('/licence')
+def get_licence():
     print(request.get_json(), flush=True)
     return "hello"
 
